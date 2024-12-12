@@ -19,6 +19,22 @@ class Editor {
         }
     }
 
+    getMarkdown() {
+        return this.state.markdownText;
+    }
+
+    setMarkdown(markdown) {
+        this.state.markdownText = markdown;
+        this.textarea.value = markdown;
+        if (this.onInputChange) {
+            this.onInputChange(this.state.markdownText);
+        }
+    }
+
+    clear() {
+        this.setMarkdown('');
+    }
+
     render() {
         return this.editorElement;
     }
